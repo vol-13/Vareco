@@ -33,12 +33,6 @@
             this.cBoxVerActivos = new System.Windows.Forms.CheckBox();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.dgLista = new System.Windows.Forms.DataGridView();
-            this.CD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtClienteDireccion = new System.Windows.Forms.TextBox();
             this.cbTipoCliente = new System.Windows.Forms.ComboBox();
@@ -60,6 +54,12 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.CClienteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTipoTipoClienteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CClienteNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CClienteCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CClienteTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CClienteEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +84,7 @@
             this.cBoxVerActivos.TabIndex = 1;
             this.cBoxVerActivos.Text = "Ver Clientes Activos";
             this.cBoxVerActivos.UseVisualStyleBackColor = true;
+            this.cBoxVerActivos.CheckedChanged += new System.EventHandler(this.cBoxVerActivos_CheckedChanged);
             // 
             // TxtBuscar
             // 
@@ -92,6 +93,7 @@
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(483, 26);
             this.TxtBuscar.TabIndex = 2;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // dgLista
             // 
@@ -100,12 +102,12 @@
             this.dgLista.AllowUserToOrderColumns = true;
             this.dgLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CD,
-            this.CTipo,
-            this.CNombre,
-            this.CCedula,
-            this.CTelefono,
-            this.CEmail});
+            this.CClienteID,
+            this.CTipoTipoClienteID,
+            this.CClienteNombre,
+            this.CClienteCedula,
+            this.CClienteTelefono,
+            this.CClienteEmail});
             this.dgLista.Location = new System.Drawing.Point(32, 57);
             this.dgLista.MultiSelect = false;
             this.dgLista.Name = "dgLista";
@@ -115,51 +117,8 @@
             this.dgLista.Size = new System.Drawing.Size(728, 337);
             this.dgLista.TabIndex = 4;
             this.dgLista.VirtualMode = true;
-            // 
-            // CD
-            // 
-            this.CD.DataPropertyName = "ClienteID";
-            this.CD.HeaderText = "Código";
-            this.CD.Name = "CD";
-            this.CD.ReadOnly = true;
-            // 
-            // CTipo
-            // 
-            this.CTipo.DataPropertyName = "TipoClienteID";
-            this.CTipo.HeaderText = "Tipo";
-            this.CTipo.Name = "CTipo";
-            this.CTipo.ReadOnly = true;
-            // 
-            // CNombre
-            // 
-            this.CNombre.DataPropertyName = "ClienteNombre";
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            this.CNombre.ReadOnly = true;
-            this.CNombre.Width = 150;
-            // 
-            // CCedula
-            // 
-            this.CCedula.DataPropertyName = "ClienteCedula";
-            this.CCedula.HeaderText = "Cédula";
-            this.CCedula.Name = "CCedula";
-            this.CCedula.ReadOnly = true;
-            this.CCedula.Width = 125;
-            // 
-            // CTelefono
-            // 
-            this.CTelefono.DataPropertyName = "ClienteTelefono";
-            this.CTelefono.HeaderText = "Teléfono";
-            this.CTelefono.Name = "CTelefono";
-            this.CTelefono.ReadOnly = true;
-            // 
-            // CEmail
-            // 
-            this.CEmail.DataPropertyName = "ClienteEmail";
-            this.CEmail.HeaderText = "Correo";
-            this.CEmail.Name = "CEmail";
-            this.CEmail.ReadOnly = true;
-            this.CEmail.Width = 150;
+            this.dgLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLista_CellClick);
+            this.dgLista.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgLista_DataBindingComplete);
             // 
             // groupBox1
             // 
@@ -192,6 +151,7 @@
             this.txtClienteDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtClienteDireccion.Size = new System.Drawing.Size(223, 49);
             this.txtClienteDireccion.TabIndex = 9;
+            this.txtClienteDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteDireccion_KeyPress);
             // 
             // cbTipoCliente
             // 
@@ -208,6 +168,9 @@
             this.txtClienteCorreo.Name = "txtClienteCorreo";
             this.txtClienteCorreo.Size = new System.Drawing.Size(223, 26);
             this.txtClienteCorreo.TabIndex = 6;
+            this.txtClienteCorreo.Enter += new System.EventHandler(this.txtClienteCorreo_Enter);
+            this.txtClienteCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteCorreo_KeyPress);
+            this.txtClienteCorreo.Leave += new System.EventHandler(this.txtClienteCorreo_Leave);
             // 
             // txtClienteTelefono
             // 
@@ -215,6 +178,7 @@
             this.txtClienteTelefono.Name = "txtClienteTelefono";
             this.txtClienteTelefono.Size = new System.Drawing.Size(251, 26);
             this.txtClienteTelefono.TabIndex = 5;
+            this.txtClienteTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteTelefono_KeyPress);
             // 
             // txtClienteCedula
             // 
@@ -222,6 +186,7 @@
             this.txtClienteCedula.Name = "txtClienteCedula";
             this.txtClienteCedula.Size = new System.Drawing.Size(251, 26);
             this.txtClienteCedula.TabIndex = 4;
+            this.txtClienteCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteCedula_KeyPress);
             // 
             // txtClienteNombre
             // 
@@ -229,6 +194,7 @@
             this.txtClienteNombre.Name = "txtClienteNombre";
             this.txtClienteNombre.Size = new System.Drawing.Size(251, 26);
             this.txtClienteNombre.TabIndex = 3;
+            this.txtClienteNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteNombre_KeyPress);
             // 
             // txtClienteID
             // 
@@ -311,6 +277,7 @@
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnLimpiar
             // 
@@ -322,6 +289,7 @@
             this.btnLimpiar.TabIndex = 7;
             this.btnLimpiar.Text = "LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnEliminar
             // 
@@ -333,6 +301,7 @@
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
@@ -344,6 +313,7 @@
             this.btnModificar.TabIndex = 9;
             this.btnModificar.Text = "MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAgregar
             // 
@@ -355,6 +325,7 @@
             this.btnAgregar.TabIndex = 10;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // menuStrip1
             // 
@@ -364,6 +335,51 @@
             this.menuStrip1.Size = new System.Drawing.Size(787, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // CClienteID
+            // 
+            this.CClienteID.DataPropertyName = "ClienteID";
+            this.CClienteID.HeaderText = "Código";
+            this.CClienteID.Name = "CClienteID";
+            this.CClienteID.ReadOnly = true;
+            // 
+            // CTipoTipoClienteID
+            // 
+            this.CTipoTipoClienteID.DataPropertyName = "Tipo";
+            this.CTipoTipoClienteID.HeaderText = "Tipo";
+            this.CTipoTipoClienteID.Name = "CTipoTipoClienteID";
+            this.CTipoTipoClienteID.ReadOnly = true;
+            // 
+            // CClienteNombre
+            // 
+            this.CClienteNombre.DataPropertyName = "ClienteNombre";
+            this.CClienteNombre.HeaderText = "Nombre";
+            this.CClienteNombre.Name = "CClienteNombre";
+            this.CClienteNombre.ReadOnly = true;
+            this.CClienteNombre.Width = 150;
+            // 
+            // CClienteCedula
+            // 
+            this.CClienteCedula.DataPropertyName = "ClienteCedula";
+            this.CClienteCedula.HeaderText = "Cédula";
+            this.CClienteCedula.Name = "CClienteCedula";
+            this.CClienteCedula.ReadOnly = true;
+            this.CClienteCedula.Width = 125;
+            // 
+            // CClienteTelefono
+            // 
+            this.CClienteTelefono.DataPropertyName = "ClienteTelefono";
+            this.CClienteTelefono.HeaderText = "Teléfono";
+            this.CClienteTelefono.Name = "CClienteTelefono";
+            this.CClienteTelefono.ReadOnly = true;
+            // 
+            // CClienteEmail
+            // 
+            this.CClienteEmail.DataPropertyName = "ClienteEmail";
+            this.CClienteEmail.HeaderText = "Correo";
+            this.CClienteEmail.Name = "CClienteEmail";
+            this.CClienteEmail.ReadOnly = true;
+            this.CClienteEmail.Width = 150;
             // 
             // FrmClientes
             // 
@@ -389,6 +405,7 @@
             this.Name = "FrmClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión De Clientes";
+            this.Load += new System.EventHandler(this.FrmClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -424,11 +441,11 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CTipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CClienteID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CTipoTipoClienteID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CClienteNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CClienteCedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CClienteTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CClienteEmail;
     }
 }

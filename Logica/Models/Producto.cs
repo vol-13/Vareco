@@ -12,7 +12,7 @@ namespace Logica.Models
     public class Producto
     {
         public int productoID { get; set; }
-        public string produtoNombre { get; set; }
+        public string productoNombre { get; set; }
         public int productoStock { get; set; }
         public decimal productoPrecio { get; set; }
         public string produtoNotas { get; set; }
@@ -25,7 +25,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.produtoNombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.productoNombre));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Stock", this.productoStock));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Precio", this.productoPrecio));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Notas", this.produtoNotas));
@@ -47,7 +47,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.produtoNombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.productoNombre));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Stock", this.productoStock));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Precio", this.productoPrecio));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Notas", this.produtoNotas));
@@ -70,7 +70,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.produtoNombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.productoNombre));
 
             int respuesta = MiCnn.EjecutarInsertUpdateDelete("SPProductoEliminar");
 
@@ -88,7 +88,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.produtoNombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.productoNombre));
 
             int respuesta = MiCnn.EjecutarInsertUpdateDelete("SPProductoActivar");
 
@@ -106,7 +106,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.produtoNombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.productoNombre));
 
             DataTable consulta = new DataTable();
             consulta = MiCnn.EjecutarSELECT("SPConsultarProducto");
@@ -125,7 +125,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.produtoNombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.productoNombre));
 
             DataTable dt = new DataTable();
 
@@ -137,9 +137,9 @@ namespace Logica.Models
                 DataRow dr = dt.Rows[0];
 
                 R.productoID = Convert.ToInt32(dr["ProductoID"]);
-                R.produtoNombre = Convert.ToString(dr["ProductoNombre"]);
+                R.productoNombre = Convert.ToString(dr["ProductoNombre"]);
                 R.productoStock = Convert.ToInt32(dr["ProductoStock"]);
-                R.productoPrecio = Convert.ToDecimal(dr["ClienteEmail"]);
+                R.productoPrecio = Convert.ToDecimal(dr["ProductoPrecio"]);
                 R.produtoNotas = Convert.ToString(dr["ProductoNotas"]);
 
                 

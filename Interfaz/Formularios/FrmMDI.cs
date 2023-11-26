@@ -32,6 +32,75 @@ namespace Interfaz.Formularios
             }
         }
 
-      
+        private void FrmMDI_Load(object sender, EventArgs e)
+        {
+            string InfoUsuario = string.Format("{0} - {1}({2})",
+            Globales.MiUsuarioGlobal.usuarioNombre,
+            Globales.MiUsuarioGlobal.usuarioCorreo,
+            Globales.MiUsuarioGlobal.MiTipoRol.usuarioRolDescripcion);
+
+            lblUsuario.Text = InfoUsuario;
+
+            switch (Globales.MiUsuarioGlobal.MiTipoRol.usuarioRolID)
+            {
+                case 1:
+                    break;
+
+                case 2:
+                    gestiónDeUsuariosToolStripMenuItem.Visible = false;
+                    break;
+
+            }
+        }
+
+        private void gestiónDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormClientes.Visible)
+            {
+                Globales.MiFormClientes = new FrmClientes();
+
+                Globales.MiFormClientes.Show();
+            }
+        }
+
+        private void gestiónDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormProductos.Visible)
+            {
+                Globales.MiFormProductos = new FrmProductos();
+
+                Globales.MiFormProductos.Show();
+            }
+        }
+
+        private void gestónDePedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormPedidos.Visible)
+            {
+                Globales.MiFormPedidos = new FrmPedidos();
+
+                Globales.MiFormPedidos.Show();
+            }
+        }
+
+        private void aCERCADEToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormInfo.Visible)
+            {
+                Globales.MiFormInfo = new FrmInformacion();
+
+                Globales.MiFormInfo.Show();
+            }
+        }
+
+        private void rEGISTRODEPEDIDOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormRegistoPedido.Visible)
+            {
+                Globales.MiFormRegistoPedido = new FrmRegistroPedido();
+
+                Globales.MiFormRegistoPedido.Show();
+            }
+        }
     }
 }

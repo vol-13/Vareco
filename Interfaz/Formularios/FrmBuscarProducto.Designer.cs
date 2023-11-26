@@ -129,6 +129,7 @@
             this.btnSeleccionar.TabIndex = 7;
             this.btnSeleccionar.Text = "SELECCIONAR";
             this.btnSeleccionar.UseVisualStyleBackColor = false;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // btnCancelar
             // 
@@ -141,6 +142,7 @@
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label1
             // 
@@ -192,6 +194,7 @@
             this.Name = "FrmBuscarProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Producto";
+            this.Load += new System.EventHandler(this.FrmBuscarProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

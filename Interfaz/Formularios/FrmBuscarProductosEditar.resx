@@ -117,50 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="CClienteID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CTipoTipoClienteID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CClienteNombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CClienteCedula.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CClienteTelefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CClienteEmail.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="CCodigo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="CNombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="CPrecio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAFkAAABZAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAEAAACDAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAEAAACMAAAAXQAAAGQAAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAMAAACZAAAATQAAAAAAAAAAAAAAkgAAAEoAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAACfAAAAQwAAAAAAAAAAAAAAQAAAALoAAACiAAAApAAAAKoAAACqAAAAqgAA
-        AKMAAACGAAAABgAAAAAAAAAAAAAAiwAAAFEAAAAAAAAARQAAAJ0AAAAEAAAAAAAAAAsAAAAPAAAAIgAA
-        ACIAAAAMAAAAPQAAAJkAAAABAAAAAAAAAAEAAACTAAAAgwAAAM8AAAADAAAAAAAAAAAAAAA8AAAAOQAA
-        AHcAAAB3AAAAtgAAAAUAAABYAAAAewAAAAAAAAAAAAAAAgAAAFgAAABeAAAAkQAAABQAAAAJAAAALAAA
-        AE0AAABVAAAAVQAAALUAAACTAAAAAgAAAHwAAABXAAAAAAAAAAAAAAAAAAAAAAAAADEAAACOAAAAmAAA
-        AHQAAABYAAAAVQAAAFUAAAAoAAAATgAAAJUAAAACAAAAswAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABJAAAArwAAAIEAAAAAAAAAUQAAAJsAAACZAAAAmQAA
-        AKgAAACaAAAAmQAAAJkAAACpAAAAmQAAAJkAAACZAAAAeAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAA
-        AAAAAACgAAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAAAAAACVAAAADgAA
-        AAAAAAAAAAAAtQAAAAkAAAAAAAAAAAAAALkAAAAFAAAAAAAAAAAAAACkAAAAAAAAAAAAAAAAAAAAMwAA
-        ALcAAACfAAAAqQAAAKAAAAC3AAAAnwAAAKwAAACfAAAAtQAAAJ8AAACuAAAAYgAAAAAAAAAAAAAAAAAA
-        AA4AAAClAAAAAgAAAF8AAABrAAAAnwAAAAEAAABpAAAAaAAAAJkAAAABAAAAcwAAAEIAAAAAAAAAAAAA
-        AAAAAAASAAAAmwAAAAAAAABNAAAAeAAAAJIAAAAAAAAAVwAAAHcAAACKAAAAAAAAAGEAAABLAAAAAAAA
-        AAAAAAAAAAAAAAAAAGMAAACiAAAAkgAAAAYAAABpAAAAoQAAAI4AAAADAAAAbwAAAKEAAACKAAAAAgAA
-        AAAAAAAAx/8AAIP/AAAZ/wAAMAMAACIBAAAGAQAAgAAAAPAAAAD/+AAAgAMAALu7AACZmwAAgAMAAIAD
-        AACREwAAwAMAAA==
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAALcAAAC3AAAAAAAAAAAA
+        AAAAAAB8AAAA4wAAAHH///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8AAAAA4wAAAP8AAAD/AAAAh////wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AAAAAHEAAAD/AAAA/wAAAP8AAACH////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8AAAAAhwAAAP8AAAD/AAAA/wAAAIgAAAArAAAAiwAAANgAAADmAAAA3QAA
+        AJUAAAA0////AP///wD///8A////AP///wAAAACHAAAA/wAAAP8AAAD/AAAA/wAAAP8AAADpAAAAxAAA
+        AOgAAAD/AAAA/AAAAIIAAAAD////AP///wD///8A////AAAAAIgAAAD/AAAA/wAAANcAAAA6////AP//
+        /wD///8AAAAANQAAANMAAAD/AAAAff///wD///8A////AP///wAAAAArAAAA/wAAANcAAAAJ////AP//
+        /wD///8A////AP///wAAAAAHAAAA0QAAAPkAAAAu////AP///wD///8AAAAAiwAAAP8AAAA6////AP//
+        /wD///8A////AP///wD///8A////AAAAADIAAAD/AAAAnf///wD///8A////AAAAANgAAADp////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8AAAAA4QAAAM7///8A////AP///wAAAADmAAAAxP//
+        /wAAAAAG////AP///wD///8A////AP///wD///8A////AAAAALwAAADz////AP///wD///8AAAAA3QAA
+        AOgAAAAEAAAA4wAAAFv///8A////AP///wD///8A////AP///wAAAADgAAAAz////wD///8A////AAAA
+        AJUAAAD/AAAANQAAAJ4AAAD9AAAAaAAAACgAAAAnAAAABf///wAAAAAuAAAA/wAAAJ7///8A////AP//
+        /wAAAAA0AAAA/AAAANMAAAATAAAAoAAAAP8AAAD/AAAA/wAAAKAAAAAFAAAAzQAAAPoAAAAx////AP//
+        /wD///8A////AAAAAIIAAAD/AAAA0QAAADIAAAAjAAAAVgAAAEIAAAA4AAAAzQAAAP8AAAB+////AP//
+        /wD///8A////AP///wAAAAADAAAAfQAAAPkAAAD/AAAA4QAAALwAAADgAAAA/wAAAPoAAAB+AAAAA///
+        /wD///8A////AP///wD///8A////AP///wAAAAAuAAAAnQAAAM4AAADzAAAAzwAAAJ4AAAAx////AP//
+        /wD///8AH/8AAA//AAAH/wAAgAcAAMABAADg4QAA4fAAAOP4AADn/AAA5fwAAOD8AADgCAAA4AAAAPAB
+        AADwAQAA/AcAAA==
 </value>
   </data>
 </root>

@@ -36,6 +36,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtProductoNotas = new System.Windows.Forms.TextBox();
             this.txtProductoPrecio = new System.Windows.Forms.TextBox();
+            this.txtProductoStock = new System.Windows.Forms.TextBox();
             this.txtProductoNombre = new System.Windows.Forms.TextBox();
             this.txtProductoID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -48,8 +49,11 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.txtProductoStock = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.CProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProductoStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProductoPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +76,7 @@
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(483, 26);
             this.TxtBuscar.TabIndex = 2;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // cBoxVerActivos
             // 
@@ -84,6 +89,7 @@
             this.cBoxVerActivos.TabIndex = 3;
             this.cBoxVerActivos.Text = "Ver Usuarios Activos";
             this.cBoxVerActivos.UseVisualStyleBackColor = true;
+            this.cBoxVerActivos.CheckedChanged += new System.EventHandler(this.cBoxVerActivos_CheckedChanged);
             // 
             // dgLista
             // 
@@ -91,6 +97,11 @@
             this.dgLista.AllowUserToDeleteRows = false;
             this.dgLista.AllowUserToOrderColumns = true;
             this.dgLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CProductoID,
+            this.CProductoNombre,
+            this.CProductoStock,
+            this.CProductoPrecio});
             this.dgLista.Location = new System.Drawing.Point(30, 55);
             this.dgLista.MultiSelect = false;
             this.dgLista.Name = "dgLista";
@@ -100,6 +111,8 @@
             this.dgLista.Size = new System.Drawing.Size(728, 337);
             this.dgLista.TabIndex = 4;
             this.dgLista.VirtualMode = true;
+            this.dgLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLista_CellClick);
+            this.dgLista.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgLista_DataBindingComplete);
             // 
             // groupBox1
             // 
@@ -128,6 +141,7 @@
             this.txtProductoNotas.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtProductoNotas.Size = new System.Drawing.Size(250, 49);
             this.txtProductoNotas.TabIndex = 9;
+            this.txtProductoNotas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProductoNotas_KeyPress);
             // 
             // txtProductoPrecio
             // 
@@ -135,6 +149,15 @@
             this.txtProductoPrecio.Name = "txtProductoPrecio";
             this.txtProductoPrecio.Size = new System.Drawing.Size(251, 26);
             this.txtProductoPrecio.TabIndex = 4;
+            this.txtProductoPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProductoPrecio_KeyPress);
+            // 
+            // txtProductoStock
+            // 
+            this.txtProductoStock.Location = new System.Drawing.Point(471, 33);
+            this.txtProductoStock.Name = "txtProductoStock";
+            this.txtProductoStock.Size = new System.Drawing.Size(120, 26);
+            this.txtProductoStock.TabIndex = 3;
+            this.txtProductoStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProductoStock_KeyPress);
             // 
             // txtProductoNombre
             // 
@@ -142,6 +165,7 @@
             this.txtProductoNombre.Name = "txtProductoNombre";
             this.txtProductoNombre.Size = new System.Drawing.Size(251, 26);
             this.txtProductoNombre.TabIndex = 3;
+            this.txtProductoNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProductoNombre_KeyPress);
             // 
             // txtProductoID
             // 
@@ -198,7 +222,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.DarkGray;
+            this.btnCancelar.BackColor = System.Drawing.Color.LightCoral;
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(643, 638);
             this.btnCancelar.Name = "btnCancelar";
@@ -206,6 +230,7 @@
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnLimpiar
             // 
@@ -217,6 +242,7 @@
             this.btnLimpiar.TabIndex = 7;
             this.btnLimpiar.Text = "LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnEliminar
             // 
@@ -228,6 +254,7 @@
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
@@ -239,6 +266,7 @@
             this.btnModificar.TabIndex = 9;
             this.btnModificar.Text = "MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAgregar
             // 
@@ -250,13 +278,7 @@
             this.btnAgregar.TabIndex = 10;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = false;
-            // 
-            // txtProductoStock
-            // 
-            this.txtProductoStock.Location = new System.Drawing.Point(471, 33);
-            this.txtProductoStock.Name = "txtProductoStock";
-            this.txtProductoStock.Size = new System.Drawing.Size(120, 26);
-            this.txtProductoStock.TabIndex = 3;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // menuStrip1
             // 
@@ -266,6 +288,37 @@
             this.menuStrip1.Size = new System.Drawing.Size(787, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // CProductoID
+            // 
+            this.CProductoID.DataPropertyName = "ProductoID";
+            this.CProductoID.HeaderText = "Código";
+            this.CProductoID.Name = "CProductoID";
+            this.CProductoID.ReadOnly = true;
+            // 
+            // CProductoNombre
+            // 
+            this.CProductoNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CProductoNombre.DataPropertyName = "ProductoNombre";
+            this.CProductoNombre.HeaderText = "Producto";
+            this.CProductoNombre.Name = "CProductoNombre";
+            this.CProductoNombre.ReadOnly = true;
+            // 
+            // CProductoStock
+            // 
+            this.CProductoStock.DataPropertyName = "ProductoStock";
+            this.CProductoStock.HeaderText = "Stock";
+            this.CProductoStock.Name = "CProductoStock";
+            this.CProductoStock.ReadOnly = true;
+            this.CProductoStock.Width = 150;
+            // 
+            // CProductoPrecio
+            // 
+            this.CProductoPrecio.DataPropertyName = "ProductoPrecio";
+            this.CProductoPrecio.HeaderText = "Precio";
+            this.CProductoPrecio.Name = "CProductoPrecio";
+            this.CProductoPrecio.ReadOnly = true;
+            this.CProductoPrecio.Width = 175;
             // 
             // FrmProductos
             // 
@@ -291,6 +344,7 @@
             this.Name = "FrmProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión De Productos";
+            this.Load += new System.EventHandler(this.FrmProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -322,5 +376,9 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox txtProductoStock;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CProductoID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CProductoNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CProductoStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CProductoPrecio;
     }
 }

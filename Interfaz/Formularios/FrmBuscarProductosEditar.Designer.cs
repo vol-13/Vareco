@@ -1,6 +1,6 @@
 ﻿namespace Interfaz.Formularios
 {
-    partial class FrmBuscarCliente
+    partial class FrmBuscarProductosEditar
     {
         /// <summary>
         /// Required designer variable.
@@ -28,38 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBuscarCliente));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBuscarProductosEditar));
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.LblBuscar = new System.Windows.Forms.Label();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.dgLista = new System.Windows.Forms.DataGridView();
+            this.CCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.CClienteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CClienteNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTipoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).BeginInit();
             this.SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.CadetBlue;
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(689, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // LblBuscar
             // 
             this.LblBuscar.AutoSize = true;
             this.LblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblBuscar.Location = new System.Drawing.Point(15, 35);
+            this.LblBuscar.Location = new System.Drawing.Point(15, 37);
             this.LblBuscar.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.LblBuscar.Name = "LblBuscar";
             this.LblBuscar.Size = new System.Drawing.Size(59, 20);
-            this.LblBuscar.TabIndex = 2;
+            this.LblBuscar.TabIndex = 4;
             this.LblBuscar.Text = "Buscar";
             // 
             // TxtBuscar
             // 
-            this.TxtBuscar.Location = new System.Drawing.Point(86, 32);
+            this.TxtBuscar.Location = new System.Drawing.Point(74, 32);
             this.TxtBuscar.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(508, 26);
-            this.TxtBuscar.TabIndex = 3;
+            this.TxtBuscar.TabIndex = 5;
             // 
             // dgLista
             // 
@@ -68,11 +76,10 @@
             this.dgLista.AllowUserToOrderColumns = true;
             this.dgLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CClienteID,
-            this.CClienteNombre,
-            this.CCedula,
-            this.CTipoCliente});
-            this.dgLista.Location = new System.Drawing.Point(19, 71);
+            this.CCodigo,
+            this.CNombre,
+            this.CPrecio});
+            this.dgLista.Location = new System.Drawing.Point(16, 69);
             this.dgLista.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgLista.MultiSelect = false;
             this.dgLista.Name = "dgLista";
@@ -80,18 +87,41 @@
             this.dgLista.RowHeadersVisible = false;
             this.dgLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgLista.Size = new System.Drawing.Size(657, 302);
-            this.dgLista.TabIndex = 5;
+            this.dgLista.TabIndex = 7;
             this.dgLista.VirtualMode = true;
+            // 
+            // CCodigo
+            // 
+            this.CCodigo.DataPropertyName = "ProductoID";
+            this.CCodigo.HeaderText = "Código";
+            this.CCodigo.Name = "CCodigo";
+            this.CCodigo.ReadOnly = true;
+            // 
+            // CNombre
+            // 
+            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CNombre.DataPropertyName = "ProductoNombre";
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.ReadOnly = true;
+            // 
+            // CPrecio
+            // 
+            this.CPrecio.DataPropertyName = "ProductoPrecio";
+            this.CPrecio.HeaderText = "Precio";
+            this.CPrecio.Name = "CPrecio";
+            this.CPrecio.ReadOnly = true;
+            this.CPrecio.Width = 155;
             // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnSeleccionar.ForeColor = System.Drawing.Color.White;
-            this.btnSeleccionar.Location = new System.Drawing.Point(19, 383);
+            this.btnSeleccionar.Location = new System.Drawing.Point(19, 384);
             this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(141, 42);
-            this.btnSeleccionar.TabIndex = 6;
+            this.btnSeleccionar.TabIndex = 8;
             this.btnSeleccionar.Text = "SELECCIONAR";
             this.btnSeleccionar.UseVisualStyleBackColor = false;
             this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
@@ -100,55 +130,16 @@
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.LightCoral;
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(545, 383);
+            this.btnCancelar.Location = new System.Drawing.Point(545, 384);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(131, 42);
-            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.CadetBlue;
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(689, 24);
-            this.menuStrip1.TabIndex = 8;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // CClienteID
-            // 
-            this.CClienteID.DataPropertyName = "ClienteID";
-            this.CClienteID.HeaderText = "Código";
-            this.CClienteID.Name = "CClienteID";
-            this.CClienteID.ReadOnly = true;
-            // 
-            // CClienteNombre
-            // 
-            this.CClienteNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CClienteNombre.DataPropertyName = "ClienteNombre";
-            this.CClienteNombre.HeaderText = "Nombre";
-            this.CClienteNombre.Name = "CClienteNombre";
-            this.CClienteNombre.ReadOnly = true;
-            // 
-            // CCedula
-            // 
-            this.CCedula.DataPropertyName = "ClienteCedula";
-            this.CCedula.HeaderText = "Cédula";
-            this.CCedula.Name = "CCedula";
-            this.CCedula.ReadOnly = true;
-            this.CCedula.Width = 155;
-            // 
-            // CTipoCliente
-            // 
-            this.CTipoCliente.DataPropertyName = "Tipo";
-            this.CTipoCliente.HeaderText = "Tipo";
-            this.CTipoCliente.Name = "CTipoCliente";
-            this.CTipoCliente.ReadOnly = true;
-            // 
-            // FrmBuscarCliente
+            // FrmBuscarPedidosEditar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -164,10 +155,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "FrmBuscarCliente";
+            this.Name = "FrmBuscarPedidosEditar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Buscar Cliente";
-            this.Load += new System.EventHandler(this.FrmBuscarCliente_Load);
+            this.Text = "Buscar Pedidos";
+            this.Load += new System.EventHandler(this.FrmBuscarPedidosEditar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -176,15 +167,14 @@
 
         #endregion
 
+        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label LblBuscar;
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.DataGridView dgLista;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecio;
         private System.Windows.Forms.Button btnSeleccionar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CClienteID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CClienteNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CTipoCliente;
     }
 }

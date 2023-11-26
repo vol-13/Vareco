@@ -20,7 +20,7 @@ namespace Logica.Models
         public string usuarioDireccion { get; set; }
         public bool activo { get; set; }
 
-        UsuarioRol MiTipoRol { get; set; }
+        public UsuarioRol MiTipoRol { get; set; }
 
         public Usuario()
         {
@@ -132,7 +132,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@cedula", this.usuarioCedula));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.usuarioCedula));
 
             DataTable consulta = new DataTable();
             consulta = MiCnn.EjecutarSELECT("SPConsultarUsuario");

@@ -13,7 +13,7 @@ namespace Logica.Models
 
         public Producto MiProducto { get; set; }
 
-        PedidoDetalle()
+        public PedidoDetalle()
         {
             MiProducto = new Producto();
         }

@@ -131,7 +131,6 @@
             this.BtnIngresoDirecto.TabIndex = 8;
             this.BtnIngresoDirecto.Text = "INGRESO DIRECTO";
             this.BtnIngresoDirecto.UseVisualStyleBackColor = true;
-            this.BtnIngresoDirecto.Visible = false;
             this.BtnIngresoDirecto.Click += new System.EventHandler(this.BtnIngresoDirecto_Click);
             // 
             // pictureBox1
@@ -165,7 +164,7 @@
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLogin_KeyDown);
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

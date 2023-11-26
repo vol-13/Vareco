@@ -36,6 +36,8 @@
             this.gestiónDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.gestiónDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.gestónDePedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pROCESOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEGISTRODEPEDIDOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -51,8 +53,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
-            this.gestónDePedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.menuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -106,6 +106,7 @@
             this.gestiónDeClientesToolStripMenuItem.Name = "gestiónDeClientesToolStripMenuItem";
             this.gestiónDeClientesToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
             this.gestiónDeClientesToolStripMenuItem.Text = "Gestión de Clientes";
+            this.gestiónDeClientesToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeClientesToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -117,6 +118,19 @@
             this.gestiónDeProductosToolStripMenuItem.Name = "gestiónDeProductosToolStripMenuItem";
             this.gestiónDeProductosToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
             this.gestiónDeProductosToolStripMenuItem.Text = "Gestión de Productos";
+            this.gestiónDeProductosToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeProductosToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(225, 6);
+            // 
+            // gestónDePedidosToolStripMenuItem
+            // 
+            this.gestónDePedidosToolStripMenuItem.Name = "gestónDePedidosToolStripMenuItem";
+            this.gestónDePedidosToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
+            this.gestónDePedidosToolStripMenuItem.Text = "Gestón de Pedidos";
+            this.gestónDePedidosToolStripMenuItem.Click += new System.EventHandler(this.gestónDePedidosToolStripMenuItem_Click);
             // 
             // pROCESOSToolStripMenuItem
             // 
@@ -133,6 +147,7 @@
             this.rEGISTRODEPEDIDOSToolStripMenuItem.Name = "rEGISTRODEPEDIDOSToolStripMenuItem";
             this.rEGISTRODEPEDIDOSToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.rEGISTRODEPEDIDOSToolStripMenuItem.Text = "Registro De Pedidos";
+            this.rEGISTRODEPEDIDOSToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRODEPEDIDOSToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -199,6 +214,7 @@
             this.aCERCADEToolStripMenuItem1.Name = "aCERCADEToolStripMenuItem1";
             this.aCERCADEToolStripMenuItem1.Size = new System.Drawing.Size(103, 25);
             this.aCERCADEToolStripMenuItem1.Text = "ACERCA DE";
+            this.aCERCADEToolStripMenuItem1.Click += new System.EventHandler(this.aCERCADEToolStripMenuItem1_Click);
             // 
             // statusStrip1
             // 
@@ -226,17 +242,6 @@
             this.lblUsuario.Size = new System.Drawing.Size(64, 21);
             this.lblUsuario.Text = "Usuario";
             // 
-            // gestónDePedidosToolStripMenuItem
-            // 
-            this.gestónDePedidosToolStripMenuItem.Name = "gestónDePedidosToolStripMenuItem";
-            this.gestónDePedidosToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
-            this.gestónDePedidosToolStripMenuItem.Text = "Gestón de Pedidos";
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(225, 6);
-            // 
             // FrmMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,6 +256,7 @@
             this.Text = "SISTEMA VARECO";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMDI_FormClosed);
+            this.Load += new System.EventHandler(this.FrmMDI_Load);
             this.menuPrincipal.ResumeLayout(false);
             this.menuPrincipal.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

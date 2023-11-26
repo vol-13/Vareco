@@ -11,23 +11,24 @@ using System.Windows.Forms;
 
 namespace Interfaz.Formularios
 {
-    public partial class FrmBuscarCliente : Form
+    public partial class FrmBuscarUsuario : Form
     {
-        Cliente MiClienteLocal {  get; set; }
+        Usuario MiUsuarioLocal {  get; set; }
+
         DataTable Lista {  get; set; }
-        public FrmBuscarCliente()
+        public FrmBuscarUsuario()
         {
             InitializeComponent();
-            MiClienteLocal = new Cliente();
+            MiUsuarioLocal = new Usuario();
             Lista = new DataTable();
         }
 
-        private void FrmBuscarCliente_Load(object sender, EventArgs e)
+        private void FrmBuscarUsuario_Load(object sender, EventArgs e)
         {
-            ListaClientes();
+            ListaUsuarios();
         }
 
-        private void ListaClientes()
+        private void ListaUsuarios()
         {
             dgLista.AutoGenerateColumns = false;
 
@@ -42,7 +43,7 @@ namespace Interfaz.Formularios
 
             }
 
-            Lista = MiClienteLocal.ListarActivos(filtroBusqueda);
+            Lista = MiUsuarioLocal.ListarActivos(filtroBusqueda);
 
             dgLista.DataSource = Lista;
 
@@ -52,21 +53,17 @@ namespace Interfaz.Formularios
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            if(dgLista.SelectedRows.Count == 1)
+            if (dgLista.SelectedRows.Count == 1)
             {
                 DataGridViewRow row = dgLista.SelectedRows[0];
 
-                int clienteID = Convert.ToInt32(row.Cells["CClienteID"].Value);
+                int usuarioID = Convert.ToInt32(row.Cells["CUsuarioID"].Value);
 
-                string clienteNombre = Convert.ToString(row.Cells["CClienteNombre"].Value);
+                string usuarioNombre = Convert.ToString(row.Cells["CUsuarioNombre"].Value);
 
-                Globales.MiFormRegistoPedido.MiPedidoLocal.MiCliente.clienteID = clienteID;
+                Globales.MiFormPedidos.MiPedidoLocalG.MiTipoUsuario.usuarioID = usuarioID;
 
-                Globales.MiFormRegistoPedido.MiPedidoLocal.MiCliente.clienteNombre = clienteNombre;
-
-                Globales.MiFormPedidos.MiPedidoLocalG.MiCliente.clienteID = clienteID;
-
-                Globales.MiFormPedidos.MiPedidoLocalG.MiCliente.clienteNombre = clienteNombre;
+                Globales.MiFormPedidos.MiPedidoLocalG.MiTipoUsuario.usuarioNombre = usuarioNombre;
 
                 DialogResult = DialogResult.OK;
 

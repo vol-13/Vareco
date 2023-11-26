@@ -11,13 +11,19 @@ namespace Logica.Models
     {
         public int usuarioRolID { get; set; }
         public string usuarioRolDescripcion { get; set; }
-        /*
+        
         public DataTable Listar()
         {
+            DataTable R = new DataTable();
 
+            Services.Conexion MiCnn = new Services.Conexion();
+
+            R = MiCnn.EjecutarSELECT("SPListarUsuarioRol");
+
+            return R;
         }
 
-        */
+        
 
     }
 }

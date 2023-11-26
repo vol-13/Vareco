@@ -35,10 +35,10 @@ namespace Interfaz.Formularios
             if (!string.IsNullOrEmpty(TxtEmail.Text.Trim()) && !string.IsNullOrEmpty(TxtContrasenia.Text.Trim()))
             {
 
-                string usuario = TxtEmail.Text.Trim();
-                string contrasennia = TxtContrasenia.Text.Trim();
+                string correo = TxtEmail.Text.Trim();
+                string contrasenia = TxtContrasenia.Text.Trim();
  
-                Globales.MiUsuarioGlobal = Globales.MiUsuarioGlobal.validarSesion(usuario, contrasennia);
+                Globales.MiUsuarioGlobal = Globales.MiUsuarioGlobal.validarSesion(correo, contrasenia);
 
                 if (Globales.MiUsuarioGlobal.usuarioID > 0)
                 {
@@ -69,14 +69,6 @@ namespace Interfaz.Formularios
 
 
         }
-        private void FrmLogin_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Shift && e.Alt && e.KeyCode == Keys.A)
-            {
-                BtnIngresoDirecto.Visible = true;
-
-            }
-        }
 
         private void BtnIngresoDirecto_Click(object sender, EventArgs e)
         {
@@ -85,6 +77,9 @@ namespace Interfaz.Formularios
             this.Hide();
         }
 
-      
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

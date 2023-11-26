@@ -19,7 +19,7 @@ namespace Logica.Models
         public string clienteDireccion { get; set; }
         public bool activo { get; set; }
 
-        TipoCliente MiTipoCliente { get; set; }
+        public TipoCliente MiTipoCliente { get; set; }
 
         public Cliente()
         {

@@ -1,6 +1,5 @@
 ﻿using Logica.Models;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,20 +11,19 @@ using System.Windows.Forms;
 
 namespace Interfaz.Formularios
 {
-    public partial class FrmBuscarProducto : Form
+    public partial class FrmBuscarProductosEditar : Form
     {
-        DataTable ListaProductos {  get; set; }
+        DataTable ListaProductos { get; set; }
 
         Producto MiProductoLocal { get; set; }
-        public FrmBuscarProducto()
+        public FrmBuscarProductosEditar()
         {
             InitializeComponent();
-            ListaProductos = new DataTable();
             MiProductoLocal = new Producto();
-
+            ListaProductos = new DataTable();
         }
 
-        private void FrmBuscarProducto_Load(object sender, EventArgs e)
+        private void FrmBuscarPedidosEditar_Load(object sender, EventArgs e)
         {
             ListarProductos();
         }
@@ -50,44 +48,31 @@ namespace Interfaz.Formularios
 
             dgLista.ClearSelection();
 
+        }
 
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            if (dgLista.SelectedRows.Count == 1)
+            {
+                DataGridViewRow row = dgLista.SelectedRows[0];
+
+                int productoID = Convert.ToInt32(row.Cells["CCodigo"].Value);
+
+                string productoNombre = Convert.ToString(row.Cells["CNombre"].Value);
+
+                Globales.MiFormPedidos.MiPedidoLocalG.MiPedidoDetalle.MiProducto.productoID = productoID;
+
+                Globales.MiFormPedidos.MiPedidoLocalG.MiPedidoDetalle.MiProducto.productoNombre = productoNombre;
+
+                DialogResult = DialogResult.OK;
+
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
 
-        }
-
-        private void btnSeleccionar_Click(object sender, EventArgs e)
-        {
-
-            if (dgLista.SelectedRows.Count == 1)
-            {
-                DataGridViewRow row = dgLista.SelectedRows[0];
-
-                int ProductoID = Convert.ToInt32(row.Cells["CCodigo"].Value);
-                string ProductoNombre = Convert.ToString(row.Cells["CNombre"].Value);
-                decimal ProductoPrecio = Convert.ToDecimal(row.Cells["CPrecio"].Value);
-                int ProductoCantidad = Convert.ToInt32(numCantidad.Value);
-
-                DataRow MiFila = Globales.MiFormRegistoPedido.ListaProductos.NewRow();
-
-                MiFila["ProductoID"] = ProductoID;
-                MiFila["ProductoNombre"] = ProductoNombre;
-                MiFila["pedidoDetallePrecio"] = ProductoPrecio;
-                MiFila["pedidoDetalleCantidad"] = ProductoCantidad;
-
-                Globales.MiFormRegistoPedido.ListaProductos.Rows.Add(MiFila);
-
-                DialogResult = DialogResult.OK;
-
-
-
-
-
-
-            }
         }
     }
 }
