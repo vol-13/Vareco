@@ -27,6 +27,7 @@ namespace Interfaz.Formularios
         private void FrmProductos_Load(object sender, EventArgs e)
         {
             CargarListaProductos();
+            ActivarAgregar();
         }
 
         private void LimpiarFormulario()
@@ -106,11 +107,11 @@ namespace Interfaz.Formularios
 
                 DataGridViewRow MiFila = dgLista.SelectedRows[0];
 
-                string productoNombre = Convert.ToString(MiFila.Cells["CProductoNombre"].Value);
+                int productoCodigo = Convert.ToInt32(MiFila.Cells["CProductoID"].Value); 
 
                 MiProductoLocal = new Logica.Models.Producto();
 
-                MiProductoLocal.productoNombre = productoNombre;
+                MiProductoLocal.productoID = productoCodigo;
 
                 MiProductoLocal = MiProductoLocal.ConsultarObj();
 
@@ -167,7 +168,7 @@ namespace Interfaz.Formularios
         {
             if (ValidarDatos())
             {
-                bool nombre;
+                bool id;
 
                 MiProductoLocal = new Logica.Models.Producto();
 
@@ -176,11 +177,11 @@ namespace Interfaz.Formularios
                 MiProductoLocal.productoPrecio = Convert.ToDecimal(txtProductoPrecio.Text.Trim());
                 MiProductoLocal.produtoNotas = txtProductoNotas.Text.Trim();
 
-                nombre = MiProductoLocal.Consultar();
+                id = MiProductoLocal.Consultar();
 
-                if (nombre == false)
+                if (id == false)
                 {
-                    string msj = string.Format("¿Está seguro que desea agregar al producto {0}?", MiProductoLocal.productoNombre);
+                    string msj = string.Format("¿Está seguro que desea agregar el producto {0}?", MiProductoLocal.productoNombre);
 
                     DialogResult respuesta = MessageBox.Show(msj, "", MessageBoxButtons.YesNo);
 
@@ -191,7 +192,7 @@ namespace Interfaz.Formularios
 
                         if (ok)
                         {
-                            MessageBox.Show("Cliente almacenado correctamente", "", MessageBoxButtons.OK);
+                            MessageBox.Show("Producto almacenado correctamente", "", MessageBoxButtons.OK);
 
                             LimpiarFormulario();
 
@@ -209,9 +210,9 @@ namespace Interfaz.Formularios
                 }
                 else
                 {
-                    if (nombre)
+                    if (id)
                     {
-                        MessageBox.Show("Ya existe este usuario", "Error de validación", MessageBoxButtons.OK);
+                        MessageBox.Show("Ya existe este producto", "Error de validación", MessageBoxButtons.OK);
                         return;
                     }
                 }
@@ -244,6 +245,7 @@ namespace Interfaz.Formularios
 
                             LimpiarFormulario();
                             CargarListaProductos();
+                            ActivarAgregar();
                         }
                     }
 
@@ -266,7 +268,7 @@ namespace Interfaz.Formularios
                     {
                         if (MiProductoLocal.Eliminar())
                         {
-                            MessageBox.Show("El cliente ha sido eliminado satisfactoriamente", "", MessageBoxButtons.OK);
+                            MessageBox.Show("El producto ha sido eliminado satisfactoriamente", "", MessageBoxButtons.OK);
                             LimpiarFormulario();
                             CargarListaProductos();
                             ActivarAgregar();

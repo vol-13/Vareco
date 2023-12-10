@@ -15,6 +15,9 @@ namespace Interfaz.Formularios
         public FrmMDI()
         {
             InitializeComponent();
+            this.IsMdiContainer = true;
+
+
         }
 
         private void FrmMDI_FormClosed(object sender, FormClosedEventArgs e)
@@ -53,16 +56,7 @@ namespace Interfaz.Formularios
             }
         }
 
-        private void gestiónDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!Globales.MiFormClientes.Visible)
-            {
-                Globales.MiFormClientes = new FrmClientes();
-
-                Globales.MiFormClientes.Show();
-            }
-        }
-
+        
         private void gestiónDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!Globales.MiFormProductos.Visible)
@@ -100,6 +94,26 @@ namespace Interfaz.Formularios
                 Globales.MiFormRegistoPedido = new FrmRegistroPedido();
 
                 Globales.MiFormRegistoPedido.Show();
+            }
+        }
+
+        private void gestiónDeClientesToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormClientes.Visible)
+            {
+                Globales.MiFormClientes = new FrmClientes();
+
+                Globales.MiFormClientes.Show();
+            }
+        }
+
+        private void gestiónDeUsuariosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormUsuarios.Visible)
+            {
+                Globales.MiFormUsuarios = new FrmUsuarios();
+
+                Globales.MiFormUsuarios.Show();
             }
         }
     }

@@ -82,12 +82,12 @@ namespace Interfaz.Formularios
 
                 DialogResult = DialogResult.OK;
 
-
-
-
-
-
             }
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            ListarProductos();
         }
     }
 }

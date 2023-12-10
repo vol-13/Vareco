@@ -105,8 +105,7 @@ namespace Logica.Models
             bool R = false;
 
             Conexion MiCnn = new Conexion();
-
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.productoNombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@IDProducto", this.productoID));
 
             DataTable consulta = new DataTable();
             consulta = MiCnn.EjecutarSELECT("SPConsultarProducto");
@@ -125,8 +124,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.productoNombre));
-
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@IDProducto", this.productoID));
             DataTable dt = new DataTable();
 
             dt = MiCnn.EjecutarSELECT("SPConsultarProducto");

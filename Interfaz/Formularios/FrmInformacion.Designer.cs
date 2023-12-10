@@ -35,22 +35,23 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 78);
+            this.label1.Location = new System.Drawing.Point(67, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(460, 100);
             this.label1.TabIndex = 0;
             this.label1.Text = "SISTEMA DE GESTIÓN DE PEDIDOS VARECO.\r\n\r\nDESAROLLADO POR VÓLMAR JOSUÉ CARVAJAL VA" +
     "RELA.\r\n\r\n© UNIVERSIDAD CASTRO CARAZO, 2023.";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // FrmInformacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(591, 253);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;

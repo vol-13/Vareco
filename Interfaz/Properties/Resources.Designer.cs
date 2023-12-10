@@ -63,6 +63,16 @@ namespace Interfaz.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _290919473_561749708903048_7756517124229183478_n {
+            get {
+                object obj = ResourceManager.GetObject("290919473_561749708903048_7756517124229183478_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Icono {
             get {
                 object obj = ResourceManager.GetObject("Icono", resourceCulture);

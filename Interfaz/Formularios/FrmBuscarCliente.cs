@@ -64,10 +64,6 @@ namespace Interfaz.Formularios
 
                 Globales.MiFormRegistoPedido.MiPedidoLocal.MiCliente.clienteNombre = clienteNombre;
 
-                Globales.MiFormPedidos.MiPedidoLocalG.MiCliente.clienteID = clienteID;
-
-                Globales.MiFormPedidos.MiPedidoLocalG.MiCliente.clienteNombre = clienteNombre;
-
                 DialogResult = DialogResult.OK;
 
             }
@@ -77,6 +73,11 @@ namespace Interfaz.Formularios
         {
             DialogResult = DialogResult.Cancel;
 
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            ListaClientes();
         }
     }
 }

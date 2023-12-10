@@ -109,29 +109,32 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@PedidoFechaEntraga", this.pedidoFechaEntrega));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@PedidoNotas", this.pedidoNotas));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@EstadoPedidoID", this.MiEstadoPedido.estadoPedidoID));
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@ClienteID", this.MiCliente.clienteID));
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@UsuarioID", this.MiTipoUsuario.usuarioID));
-         
+
             int resultado = MiCnn.EjecutarInsertUpdateDelete("SPPedidoEditar");
 
             if (resultado > 0)
             {
-                MiCnn.ListaDeParametros.Add(new SqlParameter("@IDPedido", this.pedidoID));
-                MiCnn.ListaDeParametros.Add(new SqlParameter("@ProductoID", this.MiPedidoDetalle.MiProducto.productoID));
-                MiCnn.ListaDeParametros.Add(new SqlParameter("@pedidoDetalleCantidad", this.MiPedidoDetalle.pedidoDetalleCantidad));
-                MiCnn.ListaDeParametros.Add(new SqlParameter("@pedidoDetallePrecio", this.MiPedidoDetalle.pedidoDetallePrecio));
-                int respuesta = MiCnn.EjecutarInsertUpdateDelete("SPPedidoDetalleEditar");
+               
 
-                if(respuesta > 0)
+                Conexion MiCnnDetalle = new Conexion();
+
+                MiCnnDetalle.ListaDeParametros.Add(new SqlParameter("@IDPedido", this.pedidoID));
+                MiCnnDetalle.ListaDeParametros.Add(new SqlParameter("@ProductoID", this.MiPedidoDetalle.MiProducto.productoID));
+                MiCnnDetalle.ListaDeParametros.Add(new SqlParameter("@pedidoDetalleCantidad", this.MiPedidoDetalle.pedidoDetalleCantidad));
+
+                int resultado2 = MiCnnDetalle.EjecutarInsertUpdateDelete("SPPedidoDetalleEditar");
+
+                if (resultado2 > 0)
                 {
                     R = true;
 
                 }
-
             }
 
             return R;
         }
+
+      
 
         public DataTable ListarActivos(string pBusqueda)
         {
@@ -143,6 +146,7 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@filtroBusqueda", pBusqueda));
 
             R = MiCnn.EjecutarSELECT("SPListarActivosPedidos");
+
 
             return R;
         }
@@ -172,6 +176,24 @@ namespace Logica.Models
 
             DataTable consulta = new DataTable();
             consulta = MiCnn.EjecutarSELECT("SPConsultarPedido");
+
+            if (consulta != null && consulta.Rows.Count > 0)
+            {
+                R = true;
+            }
+
+            return R;
+        }
+        public bool ConsultarID()
+        {
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@IDPedido", this.pedidoID));
+
+            DataTable consulta = new DataTable();
+            consulta = MiCnn.EjecutarSELECT("SPConsultarPedidoID");
 
             if (consulta != null && consulta.Rows.Count > 0)
             {
@@ -214,10 +236,6 @@ namespace Logica.Models
                 R.MiPedidoDetalle.pedidoDetalleCantidad = Convert.ToInt32(dr["pedidoDetalleCantidad"]);
                 R.MiPedidoDetalle.pedidoDetallePrecio = Convert.ToDecimal(dr["pedidoDetallePrecio"]);
                 R.MiPedidoDetalle.MiProducto.productoNombre = Convert.ToString(dr["ProductoNombre"]);
-
-
-
-
 
             }
 

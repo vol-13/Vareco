@@ -24,10 +24,10 @@ namespace Interfaz.Formularios
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
-            MdiParent = Globales.MiFormPrincipal;
             CargarListaUsuarios();
             CargarRoles();
             ActivarAgregar();
+        
         }
         private void LimpiarFormulario()
         {
@@ -99,9 +99,7 @@ namespace Interfaz.Formularios
 
         }
 
-       
-
-        private void cBoxVerActivos_CheckedChanged(object sender, EventArgs e)
+       private void cBoxVerActivos_CheckedChanged(object sender, EventArgs e)
         {
             CargarListaUsuarios();
 
@@ -154,14 +152,9 @@ namespace Interfaz.Formularios
                 }
 
 
-
             }
 
-
-
         }
-
-     
 
         private bool ValidarDatos(bool omitirContrasenia = false)
         {
@@ -314,8 +307,9 @@ namespace Interfaz.Formularios
                 MiUsuarioLocal.usuarioDireccion = txtUsuarioDireccion.Text.Trim();
                 MiUsuarioLocal.MiTipoRol.usuarioRolID = Convert.ToInt32(cbUsuarioRol.SelectedValue);
 
-                
-                    DialogResult respuesta = MessageBox.Show("¿Está seguro que desea modificar el usuario?"," ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (MiUsuarioLocal.Consultar())
+                {
+                    DialogResult respuesta = MessageBox.Show("¿Está seguro que desea modificar el usuario?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                     if (respuesta == DialogResult.Yes)
                     {
@@ -325,10 +319,12 @@ namespace Interfaz.Formularios
 
                             LimpiarFormulario();
                             CargarListaUsuarios();
+                            ActivarAgregar();
                         }
 
 
                     }
+                }
 
             }
 
@@ -341,7 +337,7 @@ namespace Interfaz.Formularios
 
                 if (cBoxVerActivos.Checked)
                 {
-                    DialogResult r = MessageBox.Show("¿Está seguro que desea eliminar el usuario?", "???", MessageBoxButtons.YesNo
+                    DialogResult r = MessageBox.Show("¿Está seguro que desea eliminar el usuario?", "", MessageBoxButtons.YesNo
                         , MessageBoxIcon.Question);
                     if (r == DialogResult.Yes)
                     {
@@ -350,6 +346,7 @@ namespace Interfaz.Formularios
                             MessageBox.Show("El usuario ha sido eliminado satisfactoriamente", "", MessageBoxButtons.OK);
                             LimpiarFormulario();
                             CargarListaUsuarios();
+                            ActivarAgregar();
                         }
 
                     }
@@ -366,6 +363,7 @@ namespace Interfaz.Formularios
                             MessageBox.Show("El usuario ha sido activado satisfactoriamente", "", MessageBoxButtons.OK);
                             LimpiarFormulario();
                             CargarListaUsuarios();
+                            ActivarAgregar();
                         }
 
                     }

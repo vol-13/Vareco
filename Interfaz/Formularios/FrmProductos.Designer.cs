@@ -33,6 +33,10 @@
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.cBoxVerActivos = new System.Windows.Forms.CheckBox();
             this.dgLista = new System.Windows.Forms.DataGridView();
+            this.CProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProductoStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProductoPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtProductoNotas = new System.Windows.Forms.TextBox();
             this.txtProductoPrecio = new System.Windows.Forms.TextBox();
@@ -50,10 +54,6 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.CProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CProductoStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CProductoPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -102,17 +102,48 @@
             this.CProductoNombre,
             this.CProductoStock,
             this.CProductoPrecio});
-            this.dgLista.Location = new System.Drawing.Point(30, 55);
+            this.dgLista.Location = new System.Drawing.Point(12, 61);
             this.dgLista.MultiSelect = false;
             this.dgLista.Name = "dgLista";
             this.dgLista.ReadOnly = true;
             this.dgLista.RowHeadersVisible = false;
             this.dgLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgLista.Size = new System.Drawing.Size(728, 337);
+            this.dgLista.Size = new System.Drawing.Size(852, 331);
             this.dgLista.TabIndex = 4;
             this.dgLista.VirtualMode = true;
             this.dgLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLista_CellClick);
             this.dgLista.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgLista_DataBindingComplete);
+            // 
+            // CProductoID
+            // 
+            this.CProductoID.DataPropertyName = "ProductoID";
+            this.CProductoID.HeaderText = "Código";
+            this.CProductoID.Name = "CProductoID";
+            this.CProductoID.ReadOnly = true;
+            // 
+            // CProductoNombre
+            // 
+            this.CProductoNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CProductoNombre.DataPropertyName = "ProductoNombre";
+            this.CProductoNombre.HeaderText = "Producto";
+            this.CProductoNombre.Name = "CProductoNombre";
+            this.CProductoNombre.ReadOnly = true;
+            // 
+            // CProductoStock
+            // 
+            this.CProductoStock.DataPropertyName = "ProductoStock";
+            this.CProductoStock.HeaderText = "Stock";
+            this.CProductoStock.Name = "CProductoStock";
+            this.CProductoStock.ReadOnly = true;
+            this.CProductoStock.Width = 150;
+            // 
+            // CProductoPrecio
+            // 
+            this.CProductoPrecio.DataPropertyName = "ProductoPrecio";
+            this.CProductoPrecio.HeaderText = "Precio";
+            this.CProductoPrecio.Name = "CProductoPrecio";
+            this.CProductoPrecio.ReadOnly = true;
+            this.CProductoPrecio.Width = 175;
             // 
             // groupBox1
             // 
@@ -126,7 +157,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(30, 398);
+            this.groupBox1.Location = new System.Drawing.Point(74, 398);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(728, 214);
             this.groupBox1.TabIndex = 5;
@@ -224,7 +255,7 @@
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.LightCoral;
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(643, 638);
+            this.btnCancelar.Location = new System.Drawing.Point(733, 638);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(131, 42);
             this.btnCancelar.TabIndex = 6;
@@ -236,7 +267,7 @@
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(490, 638);
+            this.btnLimpiar.Location = new System.Drawing.Point(560, 638);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(131, 42);
             this.btnLimpiar.TabIndex = 7;
@@ -248,7 +279,7 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Firebrick;
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(329, 638);
+            this.btnEliminar.Location = new System.Drawing.Point(374, 638);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(131, 42);
             this.btnEliminar.TabIndex = 8;
@@ -260,7 +291,7 @@
             // 
             this.btnModificar.BackColor = System.Drawing.Color.Goldenrod;
             this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(176, 638);
+            this.btnModificar.Location = new System.Drawing.Point(197, 638);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(131, 42);
             this.btnModificar.TabIndex = 9;
@@ -285,47 +316,16 @@
             this.menuStrip1.BackColor = System.Drawing.Color.CadetBlue;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(787, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(876, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // CProductoID
-            // 
-            this.CProductoID.DataPropertyName = "ProductoID";
-            this.CProductoID.HeaderText = "Código";
-            this.CProductoID.Name = "CProductoID";
-            this.CProductoID.ReadOnly = true;
-            // 
-            // CProductoNombre
-            // 
-            this.CProductoNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CProductoNombre.DataPropertyName = "ProductoNombre";
-            this.CProductoNombre.HeaderText = "Producto";
-            this.CProductoNombre.Name = "CProductoNombre";
-            this.CProductoNombre.ReadOnly = true;
-            // 
-            // CProductoStock
-            // 
-            this.CProductoStock.DataPropertyName = "ProductoStock";
-            this.CProductoStock.HeaderText = "Stock";
-            this.CProductoStock.Name = "CProductoStock";
-            this.CProductoStock.ReadOnly = true;
-            this.CProductoStock.Width = 150;
-            // 
-            // CProductoPrecio
-            // 
-            this.CProductoPrecio.DataPropertyName = "ProductoPrecio";
-            this.CProductoPrecio.HeaderText = "Precio";
-            this.CProductoPrecio.Name = "CProductoPrecio";
-            this.CProductoPrecio.ReadOnly = true;
-            this.CProductoPrecio.Width = 175;
             // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(787, 692);
+            this.ClientSize = new System.Drawing.Size(876, 692);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnEliminar);
@@ -338,9 +338,11 @@
             this.Controls.Add(this.LblBuscar);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
             this.Name = "FrmProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión De Productos";

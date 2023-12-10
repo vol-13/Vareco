@@ -33,6 +33,12 @@
             this.cBoxVerActivos = new System.Windows.Forms.CheckBox();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.dgLista = new System.Windows.Forms.DataGridView();
+            this.CClienteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTipoTipoClienteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CClienteNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CClienteCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CClienteTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CClienteEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtClienteDireccion = new System.Windows.Forms.TextBox();
             this.cbTipoCliente = new System.Windows.Forms.ComboBox();
@@ -54,12 +60,6 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.CClienteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTipoTipoClienteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CClienteNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CClienteCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CClienteTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CClienteEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -108,17 +108,62 @@
             this.CClienteCedula,
             this.CClienteTelefono,
             this.CClienteEmail});
-            this.dgLista.Location = new System.Drawing.Point(32, 57);
+            this.dgLista.Location = new System.Drawing.Point(12, 63);
             this.dgLista.MultiSelect = false;
             this.dgLista.Name = "dgLista";
             this.dgLista.ReadOnly = true;
             this.dgLista.RowHeadersVisible = false;
             this.dgLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgLista.Size = new System.Drawing.Size(728, 337);
+            this.dgLista.Size = new System.Drawing.Size(852, 331);
             this.dgLista.TabIndex = 4;
             this.dgLista.VirtualMode = true;
             this.dgLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLista_CellClick);
             this.dgLista.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgLista_DataBindingComplete);
+            // 
+            // CClienteID
+            // 
+            this.CClienteID.DataPropertyName = "ClienteID";
+            this.CClienteID.HeaderText = "Código";
+            this.CClienteID.Name = "CClienteID";
+            this.CClienteID.ReadOnly = true;
+            // 
+            // CTipoTipoClienteID
+            // 
+            this.CTipoTipoClienteID.DataPropertyName = "Tipo";
+            this.CTipoTipoClienteID.HeaderText = "Tipo";
+            this.CTipoTipoClienteID.Name = "CTipoTipoClienteID";
+            this.CTipoTipoClienteID.ReadOnly = true;
+            // 
+            // CClienteNombre
+            // 
+            this.CClienteNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CClienteNombre.DataPropertyName = "ClienteNombre";
+            this.CClienteNombre.HeaderText = "Nombre";
+            this.CClienteNombre.Name = "CClienteNombre";
+            this.CClienteNombre.ReadOnly = true;
+            // 
+            // CClienteCedula
+            // 
+            this.CClienteCedula.DataPropertyName = "ClienteCedula";
+            this.CClienteCedula.HeaderText = "Cédula";
+            this.CClienteCedula.Name = "CClienteCedula";
+            this.CClienteCedula.ReadOnly = true;
+            this.CClienteCedula.Width = 125;
+            // 
+            // CClienteTelefono
+            // 
+            this.CClienteTelefono.DataPropertyName = "ClienteTelefono";
+            this.CClienteTelefono.HeaderText = "Teléfono";
+            this.CClienteTelefono.Name = "CClienteTelefono";
+            this.CClienteTelefono.ReadOnly = true;
+            // 
+            // CClienteEmail
+            // 
+            this.CClienteEmail.DataPropertyName = "ClienteEmail";
+            this.CClienteEmail.HeaderText = "Correo";
+            this.CClienteEmail.Name = "CClienteEmail";
+            this.CClienteEmail.ReadOnly = true;
+            this.CClienteEmail.Width = 150;
             // 
             // groupBox1
             // 
@@ -136,20 +181,20 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(32, 400);
+            this.groupBox1.Location = new System.Drawing.Point(13, 400);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(728, 214);
+            this.groupBox1.Size = new System.Drawing.Size(851, 214);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles Del Cliente";
             // 
             // txtClienteDireccion
             // 
-            this.txtClienteDireccion.Location = new System.Drawing.Point(481, 119);
+            this.txtClienteDireccion.Location = new System.Drawing.Point(552, 119);
             this.txtClienteDireccion.Multiline = true;
             this.txtClienteDireccion.Name = "txtClienteDireccion";
             this.txtClienteDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtClienteDireccion.Size = new System.Drawing.Size(223, 49);
+            this.txtClienteDireccion.Size = new System.Drawing.Size(255, 49);
             this.txtClienteDireccion.TabIndex = 9;
             this.txtClienteDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteDireccion_KeyPress);
             // 
@@ -157,16 +202,16 @@
             // 
             this.cbTipoCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoCliente.FormattingEnabled = true;
-            this.cbTipoCliente.Location = new System.Drawing.Point(481, 40);
+            this.cbTipoCliente.Location = new System.Drawing.Point(552, 40);
             this.cbTipoCliente.Name = "cbTipoCliente";
-            this.cbTipoCliente.Size = new System.Drawing.Size(223, 28);
+            this.cbTipoCliente.Size = new System.Drawing.Size(255, 28);
             this.cbTipoCliente.TabIndex = 8;
             // 
             // txtClienteCorreo
             // 
-            this.txtClienteCorreo.Location = new System.Drawing.Point(481, 74);
+            this.txtClienteCorreo.Location = new System.Drawing.Point(552, 74);
             this.txtClienteCorreo.Name = "txtClienteCorreo";
-            this.txtClienteCorreo.Size = new System.Drawing.Size(223, 26);
+            this.txtClienteCorreo.Size = new System.Drawing.Size(255, 26);
             this.txtClienteCorreo.TabIndex = 6;
             this.txtClienteCorreo.Enter += new System.EventHandler(this.txtClienteCorreo_Enter);
             this.txtClienteCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteCorreo_KeyPress);
@@ -207,7 +252,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(414, 77);
+            this.label5.Location = new System.Drawing.Point(485, 77);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 20);
             this.label5.TabIndex = 1;
@@ -216,7 +261,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(396, 122);
+            this.label7.Location = new System.Drawing.Point(467, 122);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 20);
             this.label7.TabIndex = 1;
@@ -234,7 +279,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(357, 40);
+            this.label8.Location = new System.Drawing.Point(428, 40);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(118, 20);
             this.label8.TabIndex = 1;
@@ -271,7 +316,7 @@
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.LightCoral;
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(645, 638);
+            this.btnCancelar.Location = new System.Drawing.Point(708, 638);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(131, 42);
             this.btnCancelar.TabIndex = 6;
@@ -283,7 +328,7 @@
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(492, 638);
+            this.btnLimpiar.Location = new System.Drawing.Point(521, 638);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(131, 42);
             this.btnLimpiar.TabIndex = 7;
@@ -295,7 +340,7 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Firebrick;
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(331, 638);
+            this.btnEliminar.Location = new System.Drawing.Point(360, 638);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(131, 42);
             this.btnEliminar.TabIndex = 8;
@@ -332,61 +377,16 @@
             this.menuStrip1.BackColor = System.Drawing.Color.CadetBlue;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(787, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(876, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // CClienteID
-            // 
-            this.CClienteID.DataPropertyName = "ClienteID";
-            this.CClienteID.HeaderText = "Código";
-            this.CClienteID.Name = "CClienteID";
-            this.CClienteID.ReadOnly = true;
-            // 
-            // CTipoTipoClienteID
-            // 
-            this.CTipoTipoClienteID.DataPropertyName = "Tipo";
-            this.CTipoTipoClienteID.HeaderText = "Tipo";
-            this.CTipoTipoClienteID.Name = "CTipoTipoClienteID";
-            this.CTipoTipoClienteID.ReadOnly = true;
-            // 
-            // CClienteNombre
-            // 
-            this.CClienteNombre.DataPropertyName = "ClienteNombre";
-            this.CClienteNombre.HeaderText = "Nombre";
-            this.CClienteNombre.Name = "CClienteNombre";
-            this.CClienteNombre.ReadOnly = true;
-            this.CClienteNombre.Width = 150;
-            // 
-            // CClienteCedula
-            // 
-            this.CClienteCedula.DataPropertyName = "ClienteCedula";
-            this.CClienteCedula.HeaderText = "Cédula";
-            this.CClienteCedula.Name = "CClienteCedula";
-            this.CClienteCedula.ReadOnly = true;
-            this.CClienteCedula.Width = 125;
-            // 
-            // CClienteTelefono
-            // 
-            this.CClienteTelefono.DataPropertyName = "ClienteTelefono";
-            this.CClienteTelefono.HeaderText = "Teléfono";
-            this.CClienteTelefono.Name = "CClienteTelefono";
-            this.CClienteTelefono.ReadOnly = true;
-            // 
-            // CClienteEmail
-            // 
-            this.CClienteEmail.DataPropertyName = "ClienteEmail";
-            this.CClienteEmail.HeaderText = "Correo";
-            this.CClienteEmail.Name = "CClienteEmail";
-            this.CClienteEmail.ReadOnly = true;
-            this.CClienteEmail.Width = 150;
             // 
             // FrmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(787, 692);
+            this.ClientSize = new System.Drawing.Size(876, 692);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnEliminar);
@@ -399,9 +399,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
             this.Name = "FrmClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión De Clientes";

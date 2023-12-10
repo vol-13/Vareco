@@ -77,9 +77,6 @@ namespace Interfaz.Formularios
             this.Hide();
         }
 
-        private void FrmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

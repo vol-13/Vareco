@@ -25,7 +25,6 @@ namespace Interfaz.Formularios
 
         private void FrmRegistroPedido_Load(object sender, EventArgs e)
         {
-            MdiParent = Globales.MiFormPrincipal;
             EstadoCompra();
             LimpiarForm();
         }

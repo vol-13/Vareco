@@ -34,6 +34,7 @@
             this.cbVerActivos = new System.Windows.Forms.CheckBox();
             this.dgLista = new System.Windows.Forms.DataGridView();
             this.CCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CIDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CFechaPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CFechaEntrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,9 +46,6 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dateEntrega = new System.Windows.Forms.DateTimePicker();
-            this.btnBuscarProducto = new System.Windows.Forms.Button();
-            this.btnUsuarioBuscar = new System.Windows.Forms.Button();
-            this.btnClienteBuscar = new System.Windows.Forms.Button();
             this.numCanPedido = new System.Windows.Forms.NumericUpDown();
             this.txtPedidoNotas = new System.Windows.Forms.TextBox();
             this.cbEstadoPedido = new System.Windows.Forms.ComboBox();
@@ -89,6 +87,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(461, 26);
             this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // cbVerActivos
             // 
@@ -107,10 +106,10 @@
             // 
             this.dgLista.AllowUserToAddRows = false;
             this.dgLista.AllowUserToDeleteRows = false;
-            this.dgLista.AllowUserToOrderColumns = true;
             this.dgLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CCodigo,
+            this.CIDProducto,
             this.CProducto,
             this.CFechaPedido,
             this.CFechaEntrega,
@@ -123,7 +122,7 @@
             this.dgLista.ReadOnly = true;
             this.dgLista.RowHeadersVisible = false;
             this.dgLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgLista.Size = new System.Drawing.Size(881, 317);
+            this.dgLista.Size = new System.Drawing.Size(881, 294);
             this.dgLista.TabIndex = 3;
             this.dgLista.VirtualMode = true;
             this.dgLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLista_CellClick);
@@ -136,6 +135,13 @@
             this.CCodigo.Name = "CCodigo";
             this.CCodigo.ReadOnly = true;
             this.CCodigo.Width = 70;
+            // 
+            // CIDProducto
+            // 
+            this.CIDProducto.DataPropertyName = "ProductoID";
+            this.CIDProducto.HeaderText = "ID Producto";
+            this.CIDProducto.Name = "CIDProducto";
+            this.CIDProducto.ReadOnly = true;
             // 
             // CProducto
             // 
@@ -196,9 +202,6 @@
             this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.dateEntrega);
-            this.groupBox1.Controls.Add(this.btnBuscarProducto);
-            this.groupBox1.Controls.Add(this.btnUsuarioBuscar);
-            this.groupBox1.Controls.Add(this.btnClienteBuscar);
             this.groupBox1.Controls.Add(this.numCanPedido);
             this.groupBox1.Controls.Add(this.txtPedidoNotas);
             this.groupBox1.Controls.Add(this.cbEstadoPedido);
@@ -216,9 +219,9 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(22, 401);
+            this.groupBox1.Location = new System.Drawing.Point(22, 378);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(861, 274);
+            this.groupBox1.Size = new System.Drawing.Size(861, 244);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles Del Pedido";
@@ -248,42 +251,6 @@
             this.dateEntrega.Size = new System.Drawing.Size(229, 26);
             this.dateEntrega.TabIndex = 14;
             this.dateEntrega.Value = new System.DateTime(2023, 11, 23, 14, 11, 12, 0);
-            // 
-            // btnBuscarProducto
-            // 
-            this.btnBuscarProducto.BackColor = System.Drawing.Color.Teal;
-            this.btnBuscarProducto.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarProducto.Location = new System.Drawing.Point(351, 204);
-            this.btnBuscarProducto.Name = "btnBuscarProducto";
-            this.btnBuscarProducto.Size = new System.Drawing.Size(75, 26);
-            this.btnBuscarProducto.TabIndex = 13;
-            this.btnBuscarProducto.Text = "Buscar";
-            this.btnBuscarProducto.UseVisualStyleBackColor = false;
-            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
-            // 
-            // btnUsuarioBuscar
-            // 
-            this.btnUsuarioBuscar.BackColor = System.Drawing.Color.Teal;
-            this.btnUsuarioBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnUsuarioBuscar.Location = new System.Drawing.Point(351, 113);
-            this.btnUsuarioBuscar.Name = "btnUsuarioBuscar";
-            this.btnUsuarioBuscar.Size = new System.Drawing.Size(75, 26);
-            this.btnUsuarioBuscar.TabIndex = 12;
-            this.btnUsuarioBuscar.Text = "Buscar";
-            this.btnUsuarioBuscar.UseVisualStyleBackColor = false;
-            this.btnUsuarioBuscar.Click += new System.EventHandler(this.btnUsuarioBuscar_Click);
-            // 
-            // btnClienteBuscar
-            // 
-            this.btnClienteBuscar.BackColor = System.Drawing.Color.Teal;
-            this.btnClienteBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnClienteBuscar.Location = new System.Drawing.Point(351, 159);
-            this.btnClienteBuscar.Name = "btnClienteBuscar";
-            this.btnClienteBuscar.Size = new System.Drawing.Size(75, 26);
-            this.btnClienteBuscar.TabIndex = 11;
-            this.btnClienteBuscar.Text = "Buscar";
-            this.btnClienteBuscar.UseVisualStyleBackColor = false;
-            this.btnClienteBuscar.Click += new System.EventHandler(this.btnClienteBuscar_Click);
             // 
             // numCanPedido
             // 
@@ -436,18 +403,19 @@
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.LightCoral;
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(703, 695);
+            this.btnCancelar.Location = new System.Drawing.Point(703, 628);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(131, 42);
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(491, 695);
+            this.btnLimpiar.Location = new System.Drawing.Point(491, 628);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(131, 42);
             this.btnLimpiar.TabIndex = 7;
@@ -459,7 +427,7 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Firebrick;
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(274, 695);
+            this.btnEliminar.Location = new System.Drawing.Point(274, 628);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(131, 42);
             this.btnEliminar.TabIndex = 8;
@@ -471,7 +439,7 @@
             // 
             this.btnModificar.BackColor = System.Drawing.Color.Goldenrod;
             this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(34, 695);
+            this.btnModificar.Location = new System.Drawing.Point(34, 628);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(131, 42);
             this.btnModificar.TabIndex = 9;
@@ -484,7 +452,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(905, 749);
+            this.ClientSize = new System.Drawing.Size(905, 674);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnEliminar);
@@ -499,6 +467,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
             this.Name = "FrmPedidos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión De Pedidos";
@@ -541,12 +510,10 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown numCanPedido;
-        private System.Windows.Forms.Button btnClienteBuscar;
-        private System.Windows.Forms.Button btnUsuarioBuscar;
-        private System.Windows.Forms.Button btnBuscarProducto;
         private System.Windows.Forms.DateTimePicker dateEntrega;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIDProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn CProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFechaPedido;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFechaEntrega;

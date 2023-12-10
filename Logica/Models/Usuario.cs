@@ -133,6 +133,7 @@ namespace Logica.Models
             Conexion MiCnn = new Conexion();
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.usuarioCedula));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@IDUsuario", this.usuarioID));
 
             DataTable consulta = new DataTable();
             consulta = MiCnn.EjecutarSELECT("SPConsultarUsuario");
@@ -152,6 +153,7 @@ namespace Logica.Models
             Conexion MiCnn = new Conexion();
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.usuarioCedula));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@IDUsuario", this.usuarioID));
 
             DataTable dt = new DataTable();
 

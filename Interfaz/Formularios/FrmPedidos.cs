@@ -9,30 +9,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Linq.Expressions;
-
+using System.Runtime.CompilerServices;
 
 namespace Interfaz.Formularios
 {
     public partial class FrmPedidos : Form
     {
         private Logica.Models.Pedido MiPedidoLocal {  get; set; }
-        private Logica.Models.PedidoDetalle MiPedidoDetalleLocal { get; set; }
-        private Logica.Models.Producto MiProductoLocal { get; set; }
-        public Pedido MiPedidoLocalG { get; set; }
+        private Logica.Models.PedidoDetalle MiPedidoDetalle { get; set; }
 
         private DataTable ListaPedidos { get; set; }
+        int productoID = 0;
         public FrmPedidos()
         {
             InitializeComponent();
-            MiPedidoLocalG = new Pedido();
             MiPedidoLocal = new Logica.Models.Pedido();
+            MiPedidoDetalle = new Logica.Models.PedidoDetalle();
             ListaPedidos = new DataTable();
-            MiPedidoDetalleLocal = new PedidoDetalle();
         }
 
         private void FrmPedidos_Load(object sender, EventArgs e)
         {
-            MdiParent = Globales.MiFormPrincipal;
             CargarListaPedidos();
             CargarEstado();
         }
@@ -60,7 +57,7 @@ namespace Interfaz.Formularios
 
             if(!string.IsNullOrEmpty(txtBuscar.Text.Trim()) && txtBuscar.Text.Count() >= 3)
             {
-                filtrarBusqueda =txtBuscar.Text;
+                filtrarBusqueda =txtBuscar.Text.Trim();
             }
 
             if (cbVerActivos.Checked)
@@ -79,7 +76,7 @@ namespace Interfaz.Formularios
         public void CargarEstado()
         {
             Logica.Models.EstadoPedido estado = new Logica.Models.EstadoPedido();
-  
+
             DataTable dt = new DataTable();
 
             dt = estado.Listar();
@@ -93,40 +90,6 @@ namespace Interfaz.Formularios
             }
         }
 
-
-
-        private void btnUsuarioBuscar_Click(object sender, EventArgs e)
-        {
-            Form FormBuscarUsuario = new FrmBuscarUsuario();
-            DialogResult R = FormBuscarUsuario.ShowDialog();
-
-            if (R == DialogResult.OK) 
-            {
-                txtPedidoUsuario.Text = MiPedidoLocalG.MiTipoUsuario.usuarioNombre;
-            }
-        }
-
-        private void btnClienteBuscar_Click(object sender, EventArgs e)
-        {
-            Form FormBuscarCliente = new FrmBuscarCliente();
-            DialogResult R = FormBuscarCliente.ShowDialog();
-
-            if (R == DialogResult.OK)
-            {
-                txtPedidoCliente.Text = MiPedidoLocalG.MiCliente.clienteNombre;
-            }
-        }
-
-        private void btnBuscarProducto_Click(object sender, EventArgs e)
-        {
-            Form FormBuscarProducto = new FrmBuscarProductosEditar();
-            DialogResult R = FormBuscarProducto.ShowDialog();
-
-            if (R == DialogResult.OK)
-            {
-                txtPedidoProducto.Text = MiPedidoLocalG.MiPedidoDetalle.MiProducto.productoNombre;
-            }
-        }
 
         private void cbVerActivos_CheckedChanged(object sender, EventArgs e)
         {
@@ -160,20 +123,19 @@ namespace Interfaz.Formularios
 
                 int pedidoID = Convert.ToInt32(MiFila.Cells["CCodigo"].Value);
 
-                string productoNombre = Convert.ToString(MiFila.Cells["CProducto"].Value);
+                 productoID = Convert.ToInt32(MiFila.Cells["CIDProducto"].Value);
 
               
 
                 MiPedidoLocal = new Logica.Models.Pedido();
-                MiProductoLocal = new Logica.Models.Producto();
+                MiPedidoDetalle = new Logica.Models.PedidoDetalle();
 
                 MiPedidoLocal.pedidoID = pedidoID;
-                MiProductoLocal.productoNombre = productoNombre;
+                MiPedidoLocal.MiPedidoDetalle.MiProducto.productoID = productoID;
 
-                MiProductoLocal = MiProductoLocal.ConsultarObj();
-                MiPedidoLocal.MiPedidoDetalle.MiProducto.productoID = MiProductoLocal.productoID;
+             
                 MiPedidoLocal = MiPedidoLocal.ConsultarObj();
-
+                
 
                 if (MiPedidoLocal != null && MiPedidoLocal.pedidoID > 0 )
                 {
@@ -187,6 +149,7 @@ namespace Interfaz.Formularios
                     txtPedidoProducto.Text = MiPedidoLocal.MiPedidoDetalle.MiProducto.productoNombre;
                     numCanPedido.Value = Convert.ToDecimal(MiPedidoLocal.MiPedidoDetalle.pedidoDetalleCantidad);
                     txtTotal.Text = Convert.ToString(MiPedidoLocal.MiPedidoDetalle.pedidoDetallePrecio);
+
                 }
 
             }
@@ -195,8 +158,6 @@ namespace Interfaz.Formularios
         private bool ValidarDatos()
         {
             bool R = true;
-
-            int cantidad = Convert.ToInt32(numCanPedido.Value);
 
             if (string.IsNullOrEmpty(dateEntrega.Text.Trim()))
             {
@@ -226,7 +187,7 @@ namespace Interfaz.Formularios
                 return false;
             }
 
-            if (cantidad < 0)
+            if (numCanPedido.Value == 0)
             {
                 MessageBox.Show("Debe seleccionar una cantidad de productos para el pedido", "Error de validación", MessageBoxButtons.OK);
                 numCanPedido.Focus();
@@ -239,58 +200,32 @@ namespace Interfaz.Formularios
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (ValidarDatos())
-            {
-                if(MiPedidoLocalG.MiTipoUsuario != null)
+                if (ValidarDatos())
                 {
-                    MiPedidoLocal.MiTipoUsuario.usuarioID = MiPedidoLocal.MiTipoUsuario.usuarioID;
+                    MiPedidoLocal.pedidoFechaEntrega = dateEntrega.Value;
+                    MiPedidoLocal.pedidoNotas = txtPedidoNotas.Text.Trim();
+                    MiPedidoLocal.MiEstadoPedido.estadoPedidoID = Convert.ToInt32(cbEstadoPedido.SelectedValue);
+                    MiPedidoLocal.MiPedidoDetalle.MiProducto.productoID = productoID;
+                    MiPedidoLocal.MiPedidoDetalle.pedidoDetalleCantidad = Convert.ToInt32(numCanPedido.Value);
 
-                }
-                else
-                {
-                    MiPedidoLocal.MiTipoUsuario.usuarioID = MiPedidoLocalG.MiTipoUsuario.usuarioID;
-
-                }
-                if (MiPedidoLocalG.MiCliente != null)
-                {
-                    MiPedidoLocal.MiCliente.clienteID = MiPedidoLocal.MiCliente.clienteID;
-                }
-                else
-                {
-                    MiPedidoLocal.MiCliente.clienteID = MiPedidoLocalG.MiCliente.clienteID;
-
-                }
-                if (MiPedidoLocalG.MiPedidoDetalle.MiProducto != null)
-                {
-                    MiPedidoLocal.MiPedidoDetalle.MiProducto.productoID = MiPedidoLocal.MiPedidoDetalle.MiProducto.productoID;
-                }
-                else
-                {
-                    MiPedidoLocal.MiPedidoDetalle.MiProducto.productoID = MiPedidoLocalG.MiPedidoDetalle.MiProducto.productoID;
-
-                }
-                MiPedidoLocal.pedidoFechaEntrega = dateEntrega.Value;
-                MiPedidoLocal.pedidoNotas = txtPedidoNotas.Text.Trim();
-                MiPedidoLocal.MiEstadoPedido.estadoPedidoID = Convert.ToInt32(cbEstadoPedido.SelectedValue);
-                MiPedidoLocal.MiPedidoDetalle.pedidoDetalleCantidad = Convert.ToInt32(numCanPedido.Value);
-                decimal total = MiPedidoLocal.MiPedidoDetalle.MiProducto.productoPrecio;
-                MiPedidoLocal.MiPedidoDetalle.pedidoDetallePrecio = total * numCanPedido.Value;
-            }
-
-            
-                DialogResult respuesta = MessageBox.Show("¿Está seguro que desea modificar el pedido?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if (respuesta == DialogResult.Yes)
-                {
-                    if (MiPedidoLocal.Editar())
+                    if (MiPedidoLocal.Consultar())
                     {
-                        MessageBox.Show("El pedido ha sido modificado correctamente", "", MessageBoxButtons.OK);
+                        DialogResult respuesta = MessageBox.Show("¿Está seguro que desea modificar el pedido?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                        LimpiarFormulario();
-                        CargarListaPedidos();
+                        if (respuesta == DialogResult.Yes)
+                        {
+                            if (MiPedidoLocal.Editar())// && MiPedidoDetalle.Editar())
+                            {
+
+                                MessageBox.Show("El pedido ha sido modificado correctamente", "", MessageBoxButtons.OK);
+                                LimpiarFormulario();
+                                CargarListaPedidos();
+                                
+                            }
+                        }
                     }
                 }
-        }
+        }   
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
@@ -302,7 +237,7 @@ namespace Interfaz.Formularios
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if(MiPedidoLocal.pedidoID >0 && MiPedidoLocal.Consultar())
+            if(MiPedidoLocal.pedidoID > 0 && MiPedidoLocal.ConsultarID())
             {
                 if (cbVerActivos.Checked)
                 {
@@ -323,12 +258,12 @@ namespace Interfaz.Formularios
                 else
                 {
                     DialogResult r = MessageBox.Show("¿Está seguro que desea activar el pedido?", "", MessageBoxButtons.YesNo
-                     , MessageBoxIcon.Question);
+                     ,MessageBoxIcon.Question);
                     if (r == DialogResult.Yes)
                     {
                         if (MiPedidoLocal.Activar())
                         {
-                            MessageBox.Show("El usuario ha sido activado satisfactoriamente", "", MessageBoxButtons.OK);
+                            MessageBox.Show("El pedido ha sido activado satisfactoriamente", "", MessageBoxButtons.OK);
                             LimpiarFormulario();
                             CargarListaPedidos();
                         }
@@ -336,6 +271,16 @@ namespace Interfaz.Formularios
                     }
                 }
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            CargarListaPedidos();
         }
     }
 }

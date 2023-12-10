@@ -32,13 +32,13 @@
             this.LblBuscar = new System.Windows.Forms.Label();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.dgLista = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.CClienteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CClienteNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CTipoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,6 +60,7 @@
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(508, 26);
             this.TxtBuscar.TabIndex = 3;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // dgLista
             // 
@@ -82,6 +83,36 @@
             this.dgLista.Size = new System.Drawing.Size(657, 302);
             this.dgLista.TabIndex = 5;
             this.dgLista.VirtualMode = true;
+            // 
+            // CClienteID
+            // 
+            this.CClienteID.DataPropertyName = "ClienteID";
+            this.CClienteID.HeaderText = "Código";
+            this.CClienteID.Name = "CClienteID";
+            this.CClienteID.ReadOnly = true;
+            // 
+            // CClienteNombre
+            // 
+            this.CClienteNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CClienteNombre.DataPropertyName = "ClienteNombre";
+            this.CClienteNombre.HeaderText = "Nombre";
+            this.CClienteNombre.Name = "CClienteNombre";
+            this.CClienteNombre.ReadOnly = true;
+            // 
+            // CCedula
+            // 
+            this.CCedula.DataPropertyName = "ClienteCedula";
+            this.CCedula.HeaderText = "Cédula";
+            this.CCedula.Name = "CCedula";
+            this.CCedula.ReadOnly = true;
+            this.CCedula.Width = 155;
+            // 
+            // CTipoCliente
+            // 
+            this.CTipoCliente.DataPropertyName = "Tipo";
+            this.CTipoCliente.HeaderText = "Tipo";
+            this.CTipoCliente.Name = "CTipoCliente";
+            this.CTipoCliente.ReadOnly = true;
             // 
             // btnSeleccionar
             // 
@@ -118,36 +149,6 @@
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // CClienteID
-            // 
-            this.CClienteID.DataPropertyName = "ClienteID";
-            this.CClienteID.HeaderText = "Código";
-            this.CClienteID.Name = "CClienteID";
-            this.CClienteID.ReadOnly = true;
-            // 
-            // CClienteNombre
-            // 
-            this.CClienteNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CClienteNombre.DataPropertyName = "ClienteNombre";
-            this.CClienteNombre.HeaderText = "Nombre";
-            this.CClienteNombre.Name = "CClienteNombre";
-            this.CClienteNombre.ReadOnly = true;
-            // 
-            // CCedula
-            // 
-            this.CCedula.DataPropertyName = "ClienteCedula";
-            this.CCedula.HeaderText = "Cédula";
-            this.CCedula.Name = "CCedula";
-            this.CCedula.ReadOnly = true;
-            this.CCedula.Width = 155;
-            // 
-            // CTipoCliente
-            // 
-            this.CTipoCliente.DataPropertyName = "Tipo";
-            this.CTipoCliente.HeaderText = "Tipo";
-            this.CTipoCliente.Name = "CTipoCliente";
-            this.CTipoCliente.ReadOnly = true;
-            // 
             // FrmBuscarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -161,9 +162,11 @@
             this.Controls.Add(this.LblBuscar);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
             this.Name = "FrmBuscarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Cliente";

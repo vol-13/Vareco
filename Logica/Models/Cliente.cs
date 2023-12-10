@@ -121,6 +121,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@IDCedula", this.clienteID));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.clienteCedula));
 
             DataTable consulta = new DataTable();
@@ -139,7 +140,7 @@ namespace Logica.Models
             Cliente R = new Cliente();
 
             Conexion MiCnn = new Conexion();
-
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@IDCedula", this.clienteID));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.clienteCedula));
 
             DataTable dt = new DataTable();

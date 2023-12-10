@@ -27,7 +27,6 @@ namespace Interfaz.Formularios
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
-            MdiParent = Globales.MiFormPrincipal;
             CargarListaClientes();
             CargarRoles();
         }
@@ -252,7 +251,7 @@ namespace Interfaz.Formularios
                 {
                     if (cedula)
                     {
-                        MessageBox.Show("Ya existe este usuario", "Error de validación", MessageBoxButtons.OK);
+                        MessageBox.Show("Ya existe este cliente", "Error de validación", MessageBoxButtons.OK);
                         return;
                     }
                 }
@@ -285,6 +284,7 @@ namespace Interfaz.Formularios
 
                             LimpiarFormulario();
                             CargarListaClientes();
+                            ActivarAgregar();
                         }
                     }
 
@@ -318,13 +318,13 @@ namespace Interfaz.Formularios
                 }
                 else
                 {
-                    DialogResult r = MessageBox.Show("¿Está seguro que desea activar el usuario?", "", MessageBoxButtons.YesNo
+                    DialogResult r = MessageBox.Show("¿Está seguro que desea activar al cliente?", "", MessageBoxButtons.YesNo
                      , MessageBoxIcon.Question);
                     if (r == DialogResult.Yes)
                     {
                         if (MiClienteLocal.Activar())
                         {
-                            MessageBox.Show("El usuario ha sido activado satisfactoriamente", "", MessageBoxButtons.OK);
+                            MessageBox.Show("El cliente ha sido activado satisfactoriamente", "", MessageBoxButtons.OK);
                             LimpiarFormulario();
                             CargarListaClientes();
                             ActivarAgregar();

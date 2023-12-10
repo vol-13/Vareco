@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistroPedido));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateEntrega = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtNotas = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cBoxEstado = new System.Windows.Forms.ComboBox();
@@ -52,8 +54,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCrearPedido = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dateEntrega = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).BeginInit();
@@ -76,6 +76,23 @@
             this.groupBox1.Size = new System.Drawing.Size(673, 209);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // dateEntrega
+            // 
+            this.dateEntrega.Location = new System.Drawing.Point(167, 167);
+            this.dateEntrega.Name = "dateEntrega";
+            this.dateEntrega.Size = new System.Drawing.Size(302, 26);
+            this.dateEntrega.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 167);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(153, 20);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Fecha de Entrega";
             // 
             // txtNotas
             // 
@@ -304,23 +321,6 @@
             this.btnCrearPedido.UseVisualStyleBackColor = false;
             this.btnCrearPedido.Click += new System.EventHandler(this.btnCrearPedido_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 167);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(153, 20);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Fecha de Entrega";
-            // 
-            // dateEntrega
-            // 
-            this.dateEntrega.Location = new System.Drawing.Point(167, 167);
-            this.dateEntrega.Name = "dateEntrega";
-            this.dateEntrega.Size = new System.Drawing.Size(302, 26);
-            this.dateEntrega.TabIndex = 9;
-            // 
             // FrmRegistroPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -333,9 +333,11 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
             this.Name = "FrmRegistroPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro De Pedidos";

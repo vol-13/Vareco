@@ -53,23 +53,11 @@
     <Compile Include="Formularios\FrmBuscarCliente.Designer.cs">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FrmBuscarProductosEditar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmBuscarProductosEditar.Designer.cs">
-      <DependentUpon>FrmBuscarProductosEditar.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\FrmBuscarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\FrmBuscarProducto.Designer.cs">
       <DependentUpon>FrmBuscarProducto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\FrmBuscarUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmBuscarUsuario.Designer.cs">
-      <DependentUpon>FrmBuscarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmClientes.cs">
       <SubType>Form</SubType>
@@ -126,14 +114,8 @@
     <EmbeddedResource Include="Formularios\FrmBuscarCliente.resx">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmBuscarProductosEditar.resx">
-      <DependentUpon>FrmBuscarProductosEditar.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmBuscarProducto.resx">
       <DependentUpon>FrmBuscarProducto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmBuscarUsuario.resx">
-      <DependentUpon>FrmBuscarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>
@@ -190,6 +172,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Icono.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\290919473_561749708903048_7756517124229183478_n.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
