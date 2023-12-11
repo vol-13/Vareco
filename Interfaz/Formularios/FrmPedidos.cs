@@ -214,7 +214,7 @@ namespace Interfaz.Formularios
 
                         if (respuesta == DialogResult.Yes)
                         {
-                            if (MiPedidoLocal.Editar())// && MiPedidoDetalle.Editar())
+                            if (MiPedidoLocal.Editar())
                             {
 
                                 MessageBox.Show("El pedido ha sido modificado correctamente", "", MessageBoxButtons.OK);
